@@ -59,8 +59,9 @@ const config = {
         'react-hooks/rules-of-hooks': 'off',
         'react/prop-types': 'off',
         'react-hooks/exhaustive-deps': 'off',
-        'no-undef': 'off',
-        'no-unused-vars': 'off',
+        'no-undef': 'error',
+        'no-console': 'error',
+        'no-unused-vars': 'error',
         'import/order': [
             'error',
             {

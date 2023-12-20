@@ -35,7 +35,7 @@ in the list, ensure that the following keys are displayed:
 following capabilities:
 
 * **Validation Schema:** Accept a validation schema prop to ensure form data adheres to specified rules.
-* **Custom API Hook Call:** Incorporate a custom API hook that handles states such as data, isLoading, and isError.
+* **API Hook Call:** Incorporate an API hook that handles states such as data, isLoading, and isError.
 * **Callback Function for Form Rendering:** Implement a callback function prop (renderForm) that renders the form elements and handles their state appropriately.
 
 2. Component Implementation:
@@ -45,7 +45,7 @@ following capabilities:
 * Both fields should display error messages if the input doesn't meet the criteria set by the validation schema.
 * For form submissions, use the POST method at https://jsonplaceholder.typicode.com/posts.
 
-Recommended Libraries:
+Recommended libraries, but you can use whatever you prefer:
 * ***React Query:*** For handling API calls.
 * ***Zod:*** For defining the validation schema.
 * ***React Hook Form:*** For managing form state, submission, and logic.
@@ -133,10 +133,12 @@ const data = [
 You will have to complete all of these for your task to be considered done.
 
 * Follow the eslint and prettier rules set by the project; you must not use any ts-ignore or disable eslint.
-* It must contain a Readme.md file that has instructions on how to run the project as well as a brief explanation of how you have implemented these features
-* Your code must follow latest rules and conventions
+* It must contain a Readme.md file that has instructions on how to run the project as well as a brief explanation of how you have implemented these features. In the project, there is already a Readme.md file present feel free to override it completely.
+* Your code must follow the latest rules and conventions
 * You have to have checks for typescript and eslint that disallow you to commit any changes that cause errors.
+* There should be no TypeScript or Eslint errors in your code.
 * Feel free to add your own touch to these tasks
 * Keep in mind that you will have to expand upon this solution in the technical interview
+
 
 ### Note: You can override this document
