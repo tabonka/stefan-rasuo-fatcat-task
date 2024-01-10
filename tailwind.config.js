@@ -33,12 +33,11 @@ export default {
             sans: ['Montserrat', 'sans-serif'],
         },
         extend: {
-            spacing: {
-                128: '32rem',
-                144: '36rem',
-            },
             borderRadius: {
                 '4xl': '2rem',
+            },
+            gridTemplateColumns: {
+                landing: 'repeat(2, minmax(0, 832px))',
             },
         },
     },
