@@ -3,4 +3,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
     plugins: [react()],
+    define: {
+        __CWD__: JSON.stringify(process.cwd()),
+    },
 });

@@ -1,28 +1,30 @@
 import clsx from 'clsx';
 
 import { Card } from './Card.jsx';
-import { Button } from '../Button.jsx';
+
+// eslint-disable-next-line no-undef
+const vscodeProjectLink = `vscode://file/${__CWD__}`;
 
 const cards = [
     {
         title: 'Transfer the project to TypeScript',
         text: 'Your first task involves transitioning this project from JavaScript to TypeScript.',
-        link: '#',
+        link: vscodeProjectLink,
     },
     {
         title: 'Create a scalable List Component',
         text: 'Build a scalable React component to fetch and display key information (id, name, username, email, and phone) from an API in a list format.',
-        link: '#',
+        link: vscodeProjectLink,
     },
     {
         title: 'Create a Form Generator Component',
         text: 'Build a versatile React component with validation, API hook, and form rendering capabilities. ',
-        link: '#',
+        link: vscodeProjectLink,
     },
     {
         title: 'Create a Page Generator Component',
         text: 'Create a versatile React component for dynamic webpage construction, adapting to various layouts and components through received props.',
-        link: '#',
+        link: vscodeProjectLink,
     },
 ];
 
@@ -69,10 +71,22 @@ export const Landing = () => {
                 <p className={clsx('text-gray80', 'text-2xl')}>
                     Don&#39;t hesitate to connect if you have any questions.
                 </p>
-                <Button className={clsx('flex', 'items-center', 'gap-2')}>
+                <a
+                    className={clsx(
+                        'flex',
+                        'items-center',
+                        'gap-2',
+                        'rounded-lg',
+                        'px-4',
+                        'py-2',
+                        'bg-black',
+                        'text-white'
+                    )}
+                    href={vscodeProjectLink}
+                >
                     <span className={clsx('text-lg')}>Read docs</span>
                     <img src="/media/landing/arrow.svg" alt="" />
-                </Button>
+                </a>
             </div>
             <img
                 className={clsx(
