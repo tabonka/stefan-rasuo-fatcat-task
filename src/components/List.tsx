@@ -46,7 +46,7 @@ const List = <T extends z.ZodTypeAny>({
         } else {
             setError(true);
         }
-    }, [apiEndpoint, listData, resSchema]);
+    }, [apiEndpoint, resSchema]);
 
     return listData.length > 0 ? (
         <div className="flex flex-row flex-wrap w-full h-full gap-4Username">
@@ -55,7 +55,7 @@ const List = <T extends z.ZodTypeAny>({
     ) : error ? (
         <>There was an error fetching data.</>
     ) : (
-        <Skeleton className="h-12 w-12 w-full rounded">Loading...</Skeleton>
+        <Skeleton className="h-12 w-12 rounded">Loading...</Skeleton>
     );
 };
 
