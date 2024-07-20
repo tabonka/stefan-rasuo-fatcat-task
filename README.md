@@ -88,7 +88,7 @@ The form generator is a component that achieves ease of use by over-engineering.
 
 - **Dynamic validation**: Accepts any ZodSchema and uses it for form validation ``formSchema``
 - **Dynamic structuring**: Structure input fields freely by making a callback function ``renderForm``
-- **Custom form input**: Honestly i don't remmember why i did this, but atleast it has error handling built-in :D
+- **Custom form input**: Honestly I don't remmember why I did this, but atleast it has error handling built-in :D
 ```
 const formContentExample = (
         register: UseFormRegister<FieldValues>,
@@ -114,5 +114,39 @@ const formContentExample = (
         );
     };
 ```
-- 
 
+### Basic usage
+
+- Create the form generator
+```
+<FormGenerator
+    formTitle="YourTitlehere"
+    className="TheCssHerePlease"
+    apiEndpoint="YourApiUrlHere"
+    formSchema={YourFormSchemaHere}
+    renderForm={YourFormTemplateHere}
+    onSend={HandleTheResulthere}
+/>
+```
+
+- Create form that will be binded to the form generator
+```
+const formContentExample = (
+        register: UseFormRegister<FieldValues>,
+        errors: FieldErrors
+    ) => {
+        return (
+            <FormInput
+                fieldName="title"
+                type="text"
+                label="the title"
+                register={register}
+                errors={errors}
+            />
+        );
+    };
+```
+
+### Page generator
+
+To be done..
