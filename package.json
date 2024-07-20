@@ -12,7 +12,11 @@
         "build": "vite build",
         "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
         "typecheck": "tsc --noEmit",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "prepare": "husky"
+    },
+    "lint-staged": {
+        "*.tsx": ["eslint", "bash -c 'npm run typecheck'"]
     },
     "dependencies": {
         "@hookform/error-message": "^2.0.1",
@@ -45,6 +49,8 @@
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.4",
         "eslint-plugin-unused-imports": "^3.0.0",
+        "husky": "^9.1.1",
+        "lint-staged": "^15.2.7",
         "postcss": "^8.4.31",
         "prettier": "^3.1.0",
         "tailwindcss": "^3.3.5",
