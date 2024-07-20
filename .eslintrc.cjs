@@ -17,7 +17,12 @@ const config = {
         'plugin:prettier/recommended',
         'prettier',
     ],
-    ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts'],
+    ignorePatterns: [
+        'dist',
+        '.eslintrc.cjs',
+        'vite.config.ts',
+        'tailwind.config.ts',
+    ],
     settings: {
         react: { version: '18.2' },
         'import/resolver': {
@@ -25,7 +30,7 @@ const config = {
                 alias: {
                     '@homework-task': './src',
                 },
-                extensions: ['.ts', '.tsx', '.json'],
+                extensions: ['.ts', '.tsx', '.json', '.d.ts'],
                 packages: ['packages/*'],
             },
         },
@@ -89,15 +94,6 @@ const config = {
                 alphabetize: {
                     order: 'asc',
                     caseInsensitive: true,
-                },
-            },
-        ],
-        // https://github.com/orgs/react-hook-form/discussions/9325#discussioncomment-4060566
-        '@typescript-eslint/no-misused-promises': [
-            2,
-            {
-                checksVoidReturn: {
-                    attributes: false,
                 },
             },
         ],

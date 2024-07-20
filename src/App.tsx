@@ -3,9 +3,8 @@ import '@homework-task/styles.css';
 import { FieldValues } from 'react-hook-form';
 import { FieldErrors } from 'react-hook-form/dist/types/errors';
 import { UseFormRegister } from 'react-hook-form/dist/types/form';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast, ToastContainer, ToastOptions } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastOptions } from 'react-toastify/dist/types';
 import { z } from 'zod';
 
 import FormGenerator, {

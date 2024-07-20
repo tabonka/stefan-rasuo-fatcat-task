@@ -4,7 +4,7 @@ import { DevTool } from '@hookform/devtools';
 import { ErrorMessage } from '@hookform/error-message';
 import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
-import { FieldValues, useForm } from 'react-hook-form';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { FieldErrors } from 'react-hook-form/dist/types/errors';
 import { UseFormRegister } from 'react-hook-form/dist/types/form';
 import { z } from 'zod';
@@ -35,6 +35,26 @@ const FormGenerator = <T extends z.ZodSchema>({
         mode: 'onChange',
     });
 
+    const onSubmit: SubmitHandler<FieldValues> = (
+        payload: z.infer<typeof formSchema>
+    ) => {
+        fetch(apiEndpoint, {
+            method: 'POST',
+            body: JSON.stringify(payload),
+        })
+            .then((res) =>
+                res
+                    .json()
+                    .then(() => onSend({ success: 'Form sent! :D' }))
+                    .catch(() => onSend({ error: 'failed json? hmmm' }))
+            )
+            .catch(() =>
+                onSend({
+                    error: 'failed response(most likely)',
+                })
+            );
+    };
+
     return (
         <div
             className={clsx(
@@ -51,29 +71,7 @@ const FormGenerator = <T extends z.ZodSchema>({
                 <div className="text-xl font-medium mb-2">{formTitle}</div>
             )}
             <form
-                onSubmit={form.handleSubmit(
-                    (payload: z.infer<typeof formSchema>) => {
-                        fetch(apiEndpoint, {
-                            method: 'POST',
-                            body: JSON.stringify(payload),
-                        })
-                            .then((res) =>
-                                res
-                                    .json()
-                                    .then(() =>
-                                        onSend({ success: 'Form sent! :D' })
-                                    )
-                                    .catch(() =>
-                                        onSend({ error: 'failed json? hmmm' })
-                                    )
-                            )
-                            .catch(() =>
-                                onSend({
-                                    error: 'failed response(most likely)',
-                                })
-                            );
-                    }
-                )}
+                onSubmit={void form.handleSubmit(onSubmit)}
                 className="flex flex-col gap-2"
             >
                 {renderForm(form.register, form.formState.errors)}
