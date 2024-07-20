@@ -12,16 +12,16 @@ export default function App() {
         email: z.string().email('invalid mail'),
     });
 
-    const cardContent = (data: z.infer<typeof userSchema>) => (
-        <div className="flex flex-col p-2 shadow rounded">
+    const cardContent = (user: z.infer<typeof userSchema>) => (
+        <div className="flex flex-col p-2 shadow rounded" key={user.id}>
             <div className="flex flex-row font-medium text-lg mb-2">
-                #<span>{data.id}</span>-<span>{data.name}</span>
+                #<span>{user.id}</span>-<span>{user.name}</span>
             </div>
             <span>
-                <span className="font-medium">Username:</span> {data.username}
+                <span className="font-medium">Username:</span> {user.username}
             </span>
             <span>
-                <span className="font-medium">email:</span> {data.email}
+                <span className="font-medium">email:</span> {user.email}
             </span>
         </div>
     );
