@@ -5,20 +5,31 @@ const config = {
     root: true,
     env: {
         browser: true,
-        es2020: true
+        es2020: true,
     },
     extends: [
         'eslint:recommended',
         'plugin:react/recommended',
         'plugin:react/jsx-runtime',
         'plugin:react-hooks/recommended',
-        'eslint:recommended',
         'plugin:import/recommended',
+        'plugin:import/typescript',
         'plugin:prettier/recommended',
         'prettier',
     ],
-    ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.js'],
-    settings: {react: {version: '18.2'}},
+    ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts'],
+    settings: {
+        react: { version: '18.2' },
+        'import/resolver': {
+            'eslint-import-resolver-custom-alias': {
+                alias: {
+                    '@homework-task': './src',
+                },
+                extensions: ['.ts', '.tsx', '.json'],
+                packages: ['packages/*'],
+            },
+        },
+    },
     parser: '@typescript-eslint/parser',
     plugins: [
         'react-refresh',
@@ -28,14 +39,14 @@ const config = {
         'react-hooks',
         'unused-imports',
         'jsx-a11y',
-        'prettier'
+        'prettier',
     ],
     parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module",
+        ecmaVersion: 'latest',
+        sourceType: 'module',
         ecmaFeatures: {
-            jsx: true
-        }
+            jsx: true,
+        },
     },
     overrides: [
         {
@@ -52,7 +63,7 @@ const config = {
         'react-refresh/only-export-components': [
             'warn',
             {
-                allowConstantExport: true
+                allowConstantExport: true,
             },
         ],
         'prettier/prettier': 'error',
@@ -82,6 +93,6 @@ const config = {
             },
         ],
     },
-}
+};
 
 module.exports = config;

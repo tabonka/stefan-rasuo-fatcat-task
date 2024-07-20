@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { Button } from './Button.jsx';
+import { Button } from '@homework-task/components/Button';
 
 export const Cards = ({ cards }) => {
     return (
