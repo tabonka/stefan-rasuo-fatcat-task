@@ -1,5 +1,6 @@
 import { ReactNode, useEffect, useState } from 'react';
 
+import clsx from 'clsx';
 import { z } from 'zod';
 
 import { Skeleton } from '@homework-task/components/skeleton';
@@ -8,12 +9,14 @@ type ListProps<T extends z.ZodTypeAny> = {
     apiEndpoint: string;
     resSchema: T;
     cardContent: (data: z.infer<T>) => ReactNode;
+    className?: string;
 };
 
 const List = <T extends z.ZodTypeAny>({
     apiEndpoint,
     resSchema,
     cardContent,
+    className,
 }: ListProps<T>) => {
     const [error, setError] = useState<boolean>(false);
     const [listData, setListData] = useState<z.infer<T>[]>([]);
@@ -49,7 +52,17 @@ const List = <T extends z.ZodTypeAny>({
     }, [apiEndpoint, resSchema]);
 
     return listData.length > 0 ? (
-        <div className="flex flex-row flex-wrap w-full h-full gap-4Username">
+        <div
+            className={clsx(
+                'flex',
+                'flex-row',
+                'flex-wrap',
+                'w-full',
+                'h-full',
+                'gap-4',
+                className
+            )}
+        >
             {listData.map((item) => cardContent(item))}
         </div>
     ) : error ? (
