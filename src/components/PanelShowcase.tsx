@@ -1,6 +1,12 @@
 import clsx from 'clsx';
 
-export const PanelShowcase = ({ items }) => {
+type PanelShowcaseProps = {
+    title: string;
+    description: string;
+    image: string;
+};
+
+export const PanelShowcase = ({ items }: { items: PanelShowcaseProps[] }) => {
     return (
         <div className={clsx('flex', 'justify-center', 'items-center')}>
             <div

@@ -1,6 +1,14 @@
+import { ReactNode } from 'react';
+
 import clsx from 'clsx';
 
-export const Button = ({ children, onClick, className }) => {
+type ButtonProps = {
+    children: ReactNode;
+    onClick: () => void;
+    className?: string;
+};
+
+export const Button = ({ children, onClick, className }: ButtonProps) => {
     return (
         <button
             className={clsx(
